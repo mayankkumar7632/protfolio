@@ -6,7 +6,7 @@ window.addEventListener('load', () => {
     if (loader) {
         setTimeout(() => {
             loader.classList.add('hidden');
-        }, 600);
+        }, 500);
     }
 });
 
@@ -44,7 +44,8 @@ if (cursorFollower) {
 const particlesContainer = document.getElementById('particles');
 function createParticles() {
     if (!particlesContainer) return;
-    for (let i = 0; i < 45; i++) {
+    const count = window.innerWidth <= 768 ? 20 : 45;
+    for (let i = 0; i < count; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
         particle.style.left = Math.random() * 100 + '%';
@@ -100,6 +101,22 @@ typeEffect();
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
+const mobileBackdrop = document.getElementById('mobileBackdrop');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+function closeMobileMenu() {
+    if (hamburger) hamburger.classList.remove('active');
+    if (mobileMenu) mobileMenu.classList.remove('active');
+    if (mobileBackdrop) mobileBackdrop.classList.remove('active');
+    document.body.classList.remove('menu-open');
+}
+
+function openMobileMenu() {
+    if (hamburger) hamburger.classList.add('active');
+    if (mobileMenu) mobileMenu.classList.add('active');
+    if (mobileBackdrop) mobileBackdrop.classList.add('active');
+    document.body.classList.add('menu-open');
+}
 
 window.addEventListener('scroll', () => {
     if (!navbar) return;
@@ -113,24 +130,31 @@ window.addEventListener('scroll', () => {
 if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', (e) => {
         e.stopPropagation();
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
+        if (mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
     });
+
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    if (mobileBackdrop) {
+        mobileBackdrop.addEventListener('click', closeMobileMenu);
+    }
 
     // Close mobile menu on nav link click
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-        });
+        link.addEventListener('click', closeMobileMenu);
     });
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (mobileMenu.classList.contains('active')) {
             if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
+                closeMobileMenu();
             }
         }
     });
@@ -160,8 +184,25 @@ window.addEventListener('scroll', () => {
 });
 
 // ===========================
-// SCROLL REVEAL ANIMATION
+// SCROLL REVEAL & STAT COUNTERS & SKILLS (OBSERVER + FALLBACK)
 // ===========================
+function startCounter(counter) {
+    if (counter.classList.contains('counted')) return;
+    counter.classList.add('counted');
+    const target = parseInt(counter.getAttribute('data-count'));
+    let current = 0;
+    const increment = target / 30;
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            counter.textContent = target;
+            clearInterval(timer);
+        } else {
+            counter.textContent = Math.floor(current);
+        }
+    }, 35);
+}
+
 function revealOnScroll() {
     const elements = document.querySelectorAll('[data-animation]');
     elements.forEach(el => {
@@ -169,7 +210,7 @@ function revealOnScroll() {
         const windowHeight = window.innerHeight;
         const delay = el.getAttribute('data-delay') || 0;
 
-        if (rect.top < windowHeight - 80) {
+        if (rect.top < windowHeight - 40) {
             setTimeout(() => {
                 el.classList.add('animate-in');
             }, parseInt(delay));
@@ -177,53 +218,74 @@ function revealOnScroll() {
     });
 }
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// ===========================
-// SKILL BAR ANIMATION
-// ===========================
 function animateSkillBars() {
     const skillFills = document.querySelectorAll('.skill-fill');
     skillFills.forEach(fill => {
         const rect = fill.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 40) {
+        if (rect.top < window.innerHeight - 30) {
             const width = fill.getAttribute('data-width');
             fill.style.width = width + '%';
         }
     });
 }
 
-window.addEventListener('scroll', animateSkillBars);
-window.addEventListener('load', animateSkillBars);
-
-// ===========================
-// COUNTER ANIMATION
-// ===========================
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
     counters.forEach(counter => {
         const rect = counter.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 40 && !counter.classList.contains('counted')) {
-            counter.classList.add('counted');
-            const target = parseInt(counter.getAttribute('data-count'));
-            let current = 0;
-            const increment = target / 35;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    counter.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    counter.textContent = Math.floor(current);
-                }
-            }, 40);
+        if (rect.top < window.innerHeight - 30) {
+            startCounter(counter);
         }
     });
 }
 
-window.addEventListener('scroll', animateCounters);
-window.addEventListener('load', animateCounters);
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = el.getAttribute('data-delay') || 0;
+                setTimeout(() => {
+                    el.classList.add('animate-in');
+                }, parseInt(delay));
+                observer.unobserve(el);
+            }
+        });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.05 });
+
+    document.querySelectorAll('[data-animation]').forEach(el => revealObserver.observe(el));
+
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fill = entry.target;
+                const width = fill.getAttribute('data-width');
+                fill.style.width = width + '%';
+                observer.unobserve(fill);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.skill-fill').forEach(fill => skillObserver.observe(fill));
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.stat-number').forEach(counter => counterObserver.observe(counter));
+} else {
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('scroll', animateSkillBars);
+    window.addEventListener('load', animateSkillBars);
+    window.addEventListener('scroll', animateCounters);
+    window.addEventListener('load', animateCounters);
+}
 
 // ===========================
 // PROJECT FILTER
@@ -295,7 +357,7 @@ if (backToTopBtn) {
 }
 
 // ===========================
-// 3D TILT EFFECT ON CARDS
+// 3D TILT EFFECT ON CARDS (DESKTOP FINE POINTER ONLY)
 // ===========================
 if (window.matchMedia('(pointer: fine)').matches) {
     document.querySelectorAll('.skill-card, .cert-card, .project-card').forEach(card => {
