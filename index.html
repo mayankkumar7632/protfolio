@@ -3,117 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayank Kumar | Portfolio</title>
+    <meta name="description" content="Mayank Kumar — Computer Science Postgraduate Student & Web Developer. Explore my portfolio, lab projects, certifications, and skills.">
+    <meta name="keywords" content="Mayank Kumar, Web Developer, Computer Science, Pondicherry University, Portfolio, Full-Stack, HTML, CSS, JavaScript">
+    <meta name="author" content="Mayank Kumar">
+    <meta name="theme-color" content="#080B14">
 
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mayank Kumar | Portfolio">
+    <meta property="og:description" content="Web Developer & CS Postgraduate student crafting clean, responsive, and functional web applications.">
+    <meta property="og:image" content="m2.jpg">
+
+    <title>Mayank Kumar | Web Developer &amp; CS Student</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- Ambient Background Lighting -->
+    <div class="ambient-glow ambient-glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow ambient-glow-2" aria-hidden="true"></div>
+    <div class="ambient-grid-overlay" aria-hidden="true"></div>
+
     <!-- Loader -->
     <div class="loader" id="loader">
-        <div class="loader-spinner"></div>
+        <div class="loader-content">
+            <div class="loader-brand">MK</div>
+            <div class="loader-spinner"></div>
+            <span class="loader-text">Loading Experience...</span>
+        </div>
     </div>
 
     <!-- Cursor Follower -->
-    <div class="cursor-follower" id="cursorFollower"></div>
+    <div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
-        <div class="nav-brand">MK</div>
+        <div class="nav-container">
+            <a href="#home" class="nav-brand" aria-label="Mayank Kumar Homepage">
+                <span class="brand-monogram">MK</span>
+                <span class="brand-text">Mayank Kumar</span>
+            </a>
 
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#education" class="nav-link">Education</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#projects" class="nav-link">Lab Projects</a></li>
-            <li><a href="#certifications" class="nav-link">Certifications</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Lab Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
 
-        <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-nav">
+                    <span>Let's Talk</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+
+                <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <div class="mobile-menu-header">
+            <div class="nav-brand">
+                <span class="brand-monogram">MK</span>
+                <span class="brand-text">Mayank Kumar</span>
+            </div>
+        </div>
+
         <ul class="mobile-nav-links">
-            <li><a href="#home" class="mobile-nav-link">Home</a></li>
-            <li><a href="#about" class="mobile-nav-link">About</a></li>
-            <li><a href="#education" class="mobile-nav-link">Education</a></li>
-            <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
-            <li><a href="#projects" class="mobile-nav-link">Lab Projects</a></li>
-            <li><a href="#certifications" class="mobile-nav-link">Certifications</a></li>
-            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+            <li><a href="#home" class="mobile-nav-link"><i class="fas fa-house"></i> Home</a></li>
+            <li><a href="#about" class="mobile-nav-link"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#education" class="mobile-nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#skills" class="mobile-nav-link"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#projects" class="mobile-nav-link"><i class="fas fa-laptop-code"></i> Lab Projects</a></li>
+            <li><a href="#certifications" class="mobile-nav-link"><i class="fas fa-certificate"></i> Certifications</a></li>
+            <li><a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
+
+        <div class="mobile-menu-footer">
+            <a href="#contact" class="btn btn-primary btn-mobile-cta">
+                <span>Get In Touch</span>
+                <i class="fas fa-paper-plane"></i>
+            </a>
+            <div class="mobile-socials">
+                <a href="https://github.com/mayankkumar7632" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:mayankk7chal@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
     </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg-particles" id="particles"></div>
+        <div class="hero-bg-particles" id="particles" aria-hidden="true"></div>
 
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-greeting animate-typing">Hello, I'm</p>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-status-pill animate-fade-up">
+                        <span class="pulse-indicator">
+                            <span class="pulse-ring"></span>
+                            <span class="pulse-dot"></span>
+                        </span>
+                        <span>Available for Projects &amp; Collaborations</span>
+                    </div>
 
-                <h1 class="hero-name animate-fade-up">Mayank Kumar</h1>
+                    <p class="hero-greeting animate-typing">Hello, I'm</p>
 
-                <div class="hero-title-wrapper">
-                    <span class="hero-title-prefix">I'm a </span>
-                    <span class="hero-title animate-text-change" id="typedText"></span>
-                    <span class="cursor-blink">|</span>
+                    <h1 class="hero-name animate-fade-up">Mayank <span class="text-gradient">Kumar</span></h1>
+
+                    <div class="hero-title-wrapper">
+                        <span class="hero-title-prefix">I'm a </span>
+                        <span class="hero-title animate-text-change" id="typedText"></span>
+                        <span class="cursor-blink">|</span>
+                    </div>
+
+                    <p class="hero-description animate-fade-up-delay">
+                        Computer Science postgraduate student at Pondicherry University crafting polished, responsive web experiences with modern code and clean architectural design.
+                    </p>
+
+                    <div class="hero-buttons animate-fade-up-delay-2">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <span>Get In Touch</span>
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-tech-strip animate-fade-up-delay-2">
+                        <span class="tech-strip-label">Core Stack:</span>
+                        <div class="tech-tags-mini">
+                            <span class="mini-tag"><i class="fab fa-html5"></i> HTML5</span>
+                            <span class="mini-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                            <span class="mini-tag"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="mini-tag"><i class="fas fa-cubes"></i> DSA</span>
+                            <span class="mini-tag"><i class="fas fa-brain"></i> AI/ML</span>
+                        </div>
+                    </div>
                 </div>
 
-                <p class="hero-description animate-fade-up-delay">
-                    Web Developer | Learner | Tech Enthusiast
-                </p>
+                <div class="hero-image animate-fade-in">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-glow" aria-hidden="true"></div>
+                        <div class="hero-image-card">
+                            <img src="m2.jpg" alt="Mayank Kumar - Web Developer & CS Student">
+                            <div class="hero-image-overlay" aria-hidden="true"></div>
+                        </div>
 
-                <div class="hero-buttons animate-fade-up-delay-2">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
-                </div>
-            </div>
+                        <!-- Floating Badges -->
+                        <div class="hero-floating-badge badge-top">
+                            <div class="badge-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-title">MCA Student</span>
+                                <span class="badge-subtitle">Pondicherry University '27</span>
+                            </div>
+                        </div>
 
-            <div class="hero-image animate-fade-in">
-                <div class="hero-image-wrapper">
-                    <img src="m2.jpg" alt="Mayank Kumar">
-                    <div class="hero-image-ring"></div>
-                    <div class="hero-image-ring ring-2"></div>
+                        <div class="hero-floating-badge badge-bottom">
+                            <div class="badge-icon"><i class="fas fa-book-open-reader"></i></div>
+                            <div class="badge-content">
+                                <span class="badge-title">11+ Projects</span>
+                                <span class="badge-subtitle">Web Apps &amp; Labs</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-image-ring"></div>
+                        <div class="hero-image-ring ring-2"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <p>Scroll Down</p>
+            <a href="#about" class="scroll-indicator-link" aria-label="Scroll to About section">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <p>Scroll Down</p>
+            </a>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
-            <h2 class="section-title" data-animation="fade-up">About Me</h2>
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Bridging academic computer science foundations with modern, hands-on web development.</p>
+            </div>
 
             <div class="about-content">
                 <div class="about-card" data-animation="slide-left">
                     <div class="about-image-wrapper">
-                        <img src="m2.jpg" alt="Mayank Kumar">
+                        <img src="m2.jpg" alt="Mayank Kumar profile photo">
+                        <div class="about-image-overlay"></div>
+                        <div class="about-badge-card">
+                            <span class="about-badge-tag"><i class="fas fa-circle-check"></i> Verified Student</span>
+                            <span class="about-badge-inst">Pondicherry University</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="about-text" data-animation="slide-right">
+                    <div class="about-role-tag">
+                        <i class="fas fa-code-commit"></i> Full-Stack Aspirant &amp; CS Postgraduate
+                    </div>
+
                     <h3>Web Developer &amp; CS Student</h3>
 
                     <p>
@@ -131,18 +248,27 @@
 
                     <div class="about-stats">
                         <div class="stat-item">
-                            <span class="stat-number" data-count="11">0</span>
-                            <span class="stat-label">Projects</span>
+                            <div class="stat-icon-wrapper"><i class="fas fa-layer-group"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-number" data-count="11">0</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
                         </div>
 
                         <div class="stat-item">
-                            <span class="stat-number" data-count="4">0</span>
-                            <span class="stat-label">Certifications</span>
+                            <div class="stat-icon-wrapper"><i class="fas fa-award"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-number" data-count="4">0</span>
+                                <span class="stat-label">Certifications</span>
+                            </div>
                         </div>
 
                         <div class="stat-item">
-                            <span class="stat-number" data-count="3">0</span>
-                            <span class="stat-label">Technologies</span>
+                            <div class="stat-icon-wrapper"><i class="fas fa-code"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-number" data-count="3">0</span>
+                                <span class="stat-label">Technologies</span>
+                            </div>
                         </div>
                     </div>
 
@@ -150,11 +276,11 @@
                         <h4>Interests &amp; Goals</h4>
 
                         <div class="interest-tags">
-                            <span class="tag">Annapurna Trek 2028</span>
-                            <span class="tag">Swiss Visa 2029</span>
-                            <span class="tag">Web Development</span>
-                            <span class="tag">AI/ML</span>
-                            <span class="tag">Networking</span>
+                            <span class="tag"><i class="fas fa-mountain"></i> Annapurna Trek 2028</span>
+                            <span class="tag"><i class="fas fa-plane-departure"></i> Swiss Visa 2029</span>
+                            <span class="tag"><i class="fas fa-laptop-code"></i> Web Development</span>
+                            <span class="tag"><i class="fas fa-brain"></i> AI/ML</span>
+                            <span class="tag"><i class="fas fa-network-wired"></i> Networking</span>
                         </div>
                     </div>
                 </div>
@@ -165,54 +291,85 @@
     <!-- Education Section -->
     <section class="section education" id="education">
         <div class="container">
-            <h2 class="section-title" data-animation="fade-up">Education</h2>
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">Academic trajectory, milestones, and qualifications.</p>
+            </div>
 
             <div class="timeline">
-                <div class="timeline-item" data-animation="fade-up" data-delay="0">
-                    <div class="timeline-dot"></div>
+                <!-- Item 1: Post Graduation -->
+                <div class="timeline-item timeline-current" data-animation="fade-up" data-delay="0">
+                    <div class="timeline-dot">
+                        <span class="timeline-dot-inner"></span>
+                    </div>
 
                     <div class="timeline-content">
-                        <div class="timeline-date">2027 (Pursuing)</div>
+                        <div class="timeline-meta">
+                            <div class="timeline-date">
+                                <i class="far fa-calendar-alt"></i> 2027 (Pursuing)
+                            </div>
+                            <span class="timeline-status-badge">Current</span>
+                        </div>
                         <h3>Post Graduation</h3>
-                        <p class="timeline-school">Pondicherry University, Puducherry</p>
-                        <p>Currently pursuing Master's degree in Computer Science</p>
+                        <p class="timeline-school"><i class="fas fa-university"></i> Pondicherry University, Puducherry</p>
+                        <p>Currently pursuing Master's degree in Computer Science with a focus on advanced algorithms, networking, and software engineering.</p>
                     </div>
                 </div>
 
+                <!-- Item 2: Graduation -->
                 <div class="timeline-item" data-animation="fade-up" data-delay="100">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot">
+                        <span class="timeline-dot-inner"></span>
+                    </div>
 
                     <div class="timeline-content">
-                        <div class="timeline-date">2024</div>
+                        <div class="timeline-meta">
+                            <div class="timeline-date">
+                                <i class="far fa-calendar-alt"></i> 2024
+                            </div>
+                            <span class="timeline-status-badge completed">Completed</span>
+                        </div>
                         <h3>Graduation</h3>
-                        <p class="timeline-school">
-                            Ram Krishna Dwarika College, Kankarbagh, Patna
-                        </p>
-                        <p>Bachelor's degree in Computer Science</p>
+                        <p class="timeline-school"><i class="fas fa-building-columns"></i> Ram Krishna Dwarika College, Kankarbagh, Patna</p>
+                        <p>Bachelor's degree in Computer Science covering data structures, object-oriented programming, and web technologies.</p>
                     </div>
                 </div>
 
+                <!-- Item 3: Intermediate -->
                 <div class="timeline-item" data-animation="fade-up" data-delay="200">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot">
+                        <span class="timeline-dot-inner"></span>
+                    </div>
 
                     <div class="timeline-content">
-                        <div class="timeline-date">2020</div>
+                        <div class="timeline-meta">
+                            <div class="timeline-date">
+                                <i class="far fa-calendar-alt"></i> 2020
+                            </div>
+                            <span class="timeline-status-badge completed">Completed</span>
+                        </div>
                         <h3>Intermediate</h3>
-                        <p class="timeline-school">
-                            College of Commerce Arts &amp; Science, Kankarbagh, Patna
-                        </p>
-                        <p>12th Standard</p>
+                        <p class="timeline-school"><i class="fas fa-school"></i> College of Commerce Arts &amp; Science, Kankarbagh, Patna</p>
+                        <p>12th Standard education with focus on science and core fundamentals.</p>
                     </div>
                 </div>
 
+                <!-- Item 4: Matriculation -->
                 <div class="timeline-item" data-animation="fade-up" data-delay="300">
-                    <div class="timeline-dot"></div>
+                    <div class="timeline-dot">
+                        <span class="timeline-dot-inner"></span>
+                    </div>
 
                     <div class="timeline-content">
-                        <div class="timeline-date">2018</div>
+                        <div class="timeline-meta">
+                            <div class="timeline-date">
+                                <i class="far fa-calendar-alt"></i> 2018
+                            </div>
+                            <span class="timeline-status-badge completed">Completed</span>
+                        </div>
                         <h3>Matriculation</h3>
-                        <p class="timeline-school">Satyam International School, Patna</p>
-                        <p>10th Standard</p>
+                        <p class="timeline-school"><i class="fas fa-graduation-cap"></i> Satyam International School, Patna</p>
+                        <p>10th Standard foundational schooling with strong academic achievements.</p>
                     </div>
                 </div>
             </div>
@@ -222,49 +379,79 @@
     <!-- Skills Section -->
     <section class="section skills" id="skills">
         <div class="container">
-            <h2 class="section-title" data-animation="fade-up">Skills</h2>
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Skills &amp; Expertise</h2>
+                <p class="section-subtitle">Proficiencies in modern web standards, UI engineering, and programming languages.</p>
+            </div>
 
             <div class="skills-grid">
-                <div class="skill-card" data-animation="zoom-in" data-delay="0">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
+                <!-- HTML Card -->
+                <div class="skill-card skill-card-html" data-animation="zoom-in" data-delay="0">
+                    <div class="skill-card-top">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <span class="skill-percent">85%</span>
                     </div>
 
                     <h3>HTML</h3>
+                    <p class="skill-desc">Semantic HTML5, accessibility standards, SEO structure, DOM architecture.</p>
 
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="85"></div>
                     </div>
 
-                    <span class="skill-percent">85%</span>
+                    <div class="skill-chips">
+                        <span>Semantic Tags</span>
+                        <span>Forms &amp; Inputs</span>
+                        <span>SEO Basics</span>
+                    </div>
                 </div>
 
-                <div class="skill-card" data-animation="zoom-in" data-delay="100">
-                    <div class="skill-icon">
-                        <i class="fab fa-css3-alt"></i>
+                <!-- CSS Card -->
+                <div class="skill-card skill-card-css" data-animation="zoom-in" data-delay="100">
+                    <div class="skill-card-top">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <span class="skill-percent">80%</span>
                     </div>
 
                     <h3>CSS</h3>
+                    <p class="skill-desc">Responsive layouts, Flexbox &amp; Grid systems, modern transitions, glassmorphism.</p>
 
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="80"></div>
                     </div>
 
-                    <span class="skill-percent">80%</span>
+                    <div class="skill-chips">
+                        <span>Flex &amp; Grid</span>
+                        <span>Keyframes</span>
+                        <span>Media Queries</span>
+                    </div>
                 </div>
 
-                <div class="skill-card" data-animation="zoom-in" data-delay="200">
-                    <div class="skill-icon">
-                        <i class="fab fa-js"></i>
+                <!-- JS Card -->
+                <div class="skill-card skill-card-js" data-animation="zoom-in" data-delay="200">
+                    <div class="skill-card-top">
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <span class="skill-percent">70%</span>
                     </div>
 
                     <h3>JavaScript</h3>
+                    <p class="skill-desc">ES6+ syntax, DOM manipulation, asynchronous fetching, interactive components.</p>
 
                     <div class="skill-bar">
                         <div class="skill-fill" data-width="70"></div>
                     </div>
 
-                    <span class="skill-percent">70%</span>
+                    <div class="skill-chips">
+                        <span>ES6+</span>
+                        <span>DOM APIs</span>
+                        <span>Event Handling</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -273,29 +460,46 @@
     <!-- Lab Projects Section -->
     <section class="section projects" id="projects">
         <div class="container">
-            <h2 class="section-title" data-animation="fade-up">Lab Projects</h2>
-
-            <p class="section-subtitle" data-animation="fade-up">
-                All my lab exercises and projects
-            </p>
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Lab Projects</h2>
+                <p class="section-subtitle">A collection of 11 practical web applications, lab exercises, and UI builds.</p>
+            </div>
 
             <!-- Project Filters -->
             <div class="projects-filter" data-animation="fade-up">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="html">HTML</button>
-                <button class="filter-btn" data-filter="css">CSS</button>
-                <button class="filter-btn" data-filter="js">JavaScript</button>
+                <button class="filter-btn active" data-filter="all">
+                    <span>All Projects</span>
+                    <span class="filter-count">11</span>
+                </button>
+                <button class="filter-btn" data-filter="html">
+                    <span>HTML</span>
+                </button>
+                <button class="filter-btn" data-filter="css">
+                    <span>CSS</span>
+                </button>
+                <button class="filter-btn" data-filter="js">
+                    <span>JavaScript</span>
+                </button>
             </div>
 
             <div class="projects-grid">
 
                 <!-- Project 1: Calculator -->
                 <div class="project-card" data-category="html css" data-animation="fade-up" data-delay="0">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/calculator</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/calculator/"
                                target="_blank" rel="noopener noreferrer"
-                               class="project-link" aria-label="Open Calculator project">
+                               class="project-link" aria-label="Open Calculator project in new tab">
                                 <i class="fas fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
@@ -306,14 +510,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag">HTML / CSS</span>
+                            <span class="project-num">#01</span>
+                        </div>
                         <h3>Calculator</h3>
-                        <p>An online calculator for performing basic arithmetic operations.</p>
+                        <p>An online calculator for performing basic arithmetic operations with clean responsive controls.</p>
+                        <a href="https://mayankkumar7632.github.io/calculator/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 2: Skyline Weather -->
                 <div class="project-card" data-category="html css" data-animation="fade-up" data-delay="100">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/skyline-weather</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/exe9/"
@@ -329,14 +551,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag">HTML / CSS</span>
+                            <span class="project-num">#02</span>
+                        </div>
                         <h3>Skyline Weather</h3>
-                        <p>A weather information webpage with a skyline-inspired design.</p>
+                        <p>A weather information webpage featuring an atmospheric skyline-inspired interface design.</p>
+                        <a href="https://mayankkumar7632.github.io/exe9/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 3: Resume Website -->
                 <div class="project-card" data-category="html css js" data-animation="fade-up" data-delay="200">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/resume-website</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/Resume/"
@@ -352,14 +592,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS / JS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag project-tag-js">HTML / CSS / JS</span>
+                            <span class="project-num">#03</span>
+                        </div>
                         <h3>Resume Website</h3>
-                        <p>A personal resume website showcasing education, certifications, and skills.</p>
+                        <p>A personal resume website showcasing education, certifications, and skills in a structured format.</p>
+                        <a href="https://mayankkumar7632.github.io/Resume/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 4: Quiz Application -->
                 <div class="project-card" data-category="html css js" data-animation="fade-up" data-delay="300">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/quiz-app</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/Quize/"
@@ -375,14 +633,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS / JS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag project-tag-js">HTML / CSS / JS</span>
+                            <span class="project-num">#04</span>
+                        </div>
                         <h3>Quiz Application</h3>
-                        <p>An interactive quiz application with questions and answer selection.</p>
+                        <p>An interactive quiz application with question navigation, dynamic scoring, and answer validation.</p>
+                        <a href="https://mayankkumar7632.github.io/Quize/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 5: Shopping Page -->
                 <div class="project-card" data-category="html css js" data-animation="fade-up" data-delay="400">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/shopping-page</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/shoping/"
@@ -398,14 +674,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS / JS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag project-tag-js">HTML / CSS / JS</span>
+                            <span class="project-num">#05</span>
+                        </div>
                         <h3>Shopping Page</h3>
-                        <p>An e-commerce-style webpage with product displays and interactive elements.</p>
+                        <p>An e-commerce storefront layout featuring responsive product cards, pricing, and UI interactions.</p>
+                        <a href="https://mayankkumar7632.github.io/shoping/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 6: Portfolio Website -->
                 <div class="project-card" data-category="html css js" data-animation="fade-up" data-delay="500">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/portfolio</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/protfolio/"
@@ -421,14 +715,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS / JS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag project-tag-js">HTML / CSS / JS</span>
+                            <span class="project-num">#06</span>
+                        </div>
                         <h3>Portfolio Website</h3>
-                        <p>An animated portfolio showcasing lab exercises and web development projects.</p>
+                        <p>An interactive, animated personal developer portfolio highlighting projects and academic background.</p>
+                        <a href="https://mayankkumar7632.github.io/protfolio/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 7: Employee Registration -->
                 <div class="project-card" data-category="html css" data-animation="fade-up" data-delay="600">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/employee-registration</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/exe5/"
@@ -444,14 +756,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag">HTML / CSS</span>
+                            <span class="project-num">#07</span>
+                        </div>
                         <h3>Employee Registration</h3>
-                        <p>A registration form for entering employee details and selecting a department.</p>
+                        <p>A registration form for entering employee details, departmental selection, and data fields.</p>
+                        <a href="https://mayankkumar7632.github.io/exe5/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 8: Department Web Page -->
                 <div class="project-card" data-category="html css" data-animation="fade-up" data-delay="700">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/department-page</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/exe6/"
@@ -467,14 +797,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag">HTML / CSS</span>
+                            <span class="project-num">#08</span>
+                        </div>
                         <h3>Department Web Page</h3>
-                        <p>A webpage for presenting department information, activities, and details.</p>
+                        <p>An informative department portal presenting faculty profiles, academic activities, and department updates.</p>
+                        <a href="https://mayankkumar7632.github.io/exe6/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 9: Nexora Tech -->
                 <div class="project-card" data-category="html css js" data-animation="fade-up" data-delay="800">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/nexora-tech</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/exe7/"
@@ -490,14 +838,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS / JS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag project-tag-js">HTML / CSS / JS</span>
+                            <span class="project-num">#09</span>
+                        </div>
                         <h3>Nexora Tech: Company Management</h3>
-                        <p>A company webpage for presenting organizational information and management details.</p>
+                        <p>A modern corporate portal for presenting organizational structures, team portfolios, and services.</p>
+                        <a href="https://mayankkumar7632.github.io/exe7/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 10: Management System -->
                 <div class="project-card" data-category="html css js" data-animation="fade-up" data-delay="900">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/management-system</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/exe8/"
@@ -513,14 +879,32 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS / JS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag project-tag-js">HTML / CSS / JS</span>
+                            <span class="project-num">#10</span>
+                        </div>
                         <h3>Management System</h3>
-                        <p>A web-based system designed to organize information and simplify management tasks.</p>
+                        <p>A web-based dashboard designed to organize system records and streamline administrative workflows.</p>
+                        <a href="https://mayankkumar7632.github.io/exe8/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Project 11: Book Finder App -->
                 <div class="project-card" data-category="html css js" data-animation="fade-up" data-delay="1000">
+                    <div class="project-window-bar">
+                        <div class="window-controls">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <span class="window-url">mayank://lab/book-finder</span>
+                    </div>
+
                     <div class="project-image">
                         <div class="project-overlay">
                             <a href="https://mayankkumar7632.github.io/10th/"
@@ -536,9 +920,18 @@
                     </div>
 
                     <div class="project-info">
-                        <span class="project-tag">HTML / CSS / JS</span>
+                        <div class="project-meta-row">
+                            <span class="project-tag project-tag-js">HTML / CSS / JS</span>
+                            <span class="project-num">#11</span>
+                        </div>
                         <h3>Book Finder App</h3>
-                        <p>A book search interface for exploring book titles, authors, and information.</p>
+                        <p>A book search interface for exploring book titles, reading descriptions, and filtering by authors.</p>
+                        <a href="https://mayankkumar7632.github.io/10th/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="project-preview-btn">
+                            <span>Open Live Demo</span>
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
 
@@ -549,39 +942,70 @@
     <!-- Certifications Section -->
     <section class="section certifications" id="certifications">
         <div class="container">
-            <h2 class="section-title" data-animation="fade-up">Certifications</h2>
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-subtitle">Verified professional training, technical certifications, and university courses.</p>
+            </div>
 
             <div class="cert-grid">
+                <!-- Cert 1: Cisco -->
                 <div class="cert-card" data-animation="flip-in" data-delay="0">
+                    <div class="cert-header">
+                        <span class="cert-badge"><i class="fas fa-shield-halved"></i> Cisco Verified</span>
+                    </div>
                     <div class="cert-icon">
                         <i class="fas fa-network-wired"></i>
                     </div>
                     <h3>Cisco Packet Tracer</h3>
-                    <p>Networking fundamentals and configuration</p>
+                    <p>Networking fundamentals, IP addressing, topology simulation, and routing configuration.</p>
+                    <div class="cert-footer">
+                        <span class="cert-tag">Networking</span>
+                    </div>
                 </div>
 
+                <!-- Cert 2: Tata -->
                 <div class="cert-card" data-animation="flip-in" data-delay="100">
+                    <div class="cert-header">
+                        <span class="cert-badge"><i class="fas fa-shield-halved"></i> Tata Verified</span>
+                    </div>
                     <div class="cert-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
                     <h3>Tata Visualisation</h3>
-                    <p>Data visualisation and analysis</p>
+                    <p>Data visualisation techniques, analytical storytelling, dashboarding, and business metrics.</p>
+                    <div class="cert-footer">
+                        <span class="cert-tag">Analytics</span>
+                    </div>
                 </div>
 
+                <!-- Cert 3: IIT Kharagpur -->
                 <div class="cert-card" data-animation="flip-in" data-delay="200">
+                    <div class="cert-header">
+                        <span class="cert-badge"><i class="fas fa-shield-halved"></i> IIT KGP</span>
+                    </div>
                     <div class="cert-icon">
                         <i class="fas fa-sitemap"></i>
                     </div>
                     <h3>DSA - IIT Kharagpur</h3>
-                    <p>Data Structures and Algorithms certification</p>
+                    <p>Comprehensive Data Structures and Algorithms certification covering problem solving and complexity.</p>
+                    <div class="cert-footer">
+                        <span class="cert-tag">Computer Science</span>
+                    </div>
                 </div>
 
+                <!-- Cert 4: NIT Patna -->
                 <div class="cert-card" data-animation="flip-in" data-delay="300">
+                    <div class="cert-header">
+                        <span class="cert-badge"><i class="fas fa-shield-halved"></i> NIT Patna</span>
+                    </div>
                     <div class="cert-icon">
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>AI/ML - NIT Patna</h3>
-                    <p>Artificial Intelligence and Machine Learning</p>
+                    <p>Foundations of Artificial Intelligence and Machine Learning algorithms, models, and real-world pipelines.</p>
+                    <div class="cert-footer">
+                        <span class="cert-tag">AI / ML</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -590,91 +1014,111 @@
     <!-- Contact Section -->
     <section class="section contact" id="contact">
         <div class="container">
-            <h2 class="section-title" data-animation="fade-up">Get In Touch</h2>
+            <div class="section-header" data-animation="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Interested in collaborating, hiring, or discussing technology? Send me a message below.</p>
+            </div>
 
             <div class="contact-content">
                 <div class="contact-info" data-animation="slide-left">
+                    <div class="contact-intro">
+                        <h3>Let's build something remarkable together.</h3>
+                        <p>I'm always receptive to discussing new projects, internship and developer opportunities, or creative tech collaborations.</p>
+                    </div>
 
-                    <div class="contact-card">
+                    <a href="tel:7632832596" class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <div>
+                        <div class="contact-details">
                             <h4>Phone</h4>
-                            <p>7632832596</p>
+                            <p>+91 7632832596</p>
+                            <span class="contact-action">Call directly <i class="fas fa-arrow-right"></i></span>
                         </div>
-                    </div>
+                    </a>
 
-                    <div class="contact-card">
+                    <a href="mailto:mayankk7chal@gmail.com" class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div>
+                        <div class="contact-details">
                             <h4>Email</h4>
                             <p>mayankk7chal@gmail.com</p>
+                            <span class="contact-action">Write email <i class="fas fa-arrow-right"></i></span>
                         </div>
-                    </div>
+                    </a>
 
                     <div class="contact-card">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div>
+                        <div class="contact-details">
                             <h4>Location</h4>
                             <p>Pondicherry, India</p>
+                            <span class="contact-action-badge"><i class="fas fa-globe"></i> Open to Remote &amp; Relocation</span>
                         </div>
                     </div>
 
-                    <div class="social-links">
-                        <a href="mailto:mayankk7chal@gmail.com"
-                           class="social-link" title="Email"
-                           aria-label="Send email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                    <div class="social-wrapper">
+                        <span class="social-heading">Connect on Socials:</span>
+                        <div class="social-links">
+                            <a href="mailto:mayankk7chal@gmail.com"
+                               class="social-link" title="Email"
+                               aria-label="Send email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
 
-                        <a href="https://github.com/mayankkumar7632"
-                           target="_blank" rel="noopener noreferrer"
-                           class="social-link" title="GitHub"
-                           aria-label="GitHub profile">
-                            <i class="fab fa-github"></i>
-                        </a>
+                            <a href="https://github.com/mayankkumar7632"
+                               target="_blank" rel="noopener noreferrer"
+                               class="social-link" title="GitHub"
+                               aria-label="GitHub profile">
+                                <i class="fab fa-github"></i>
+                            </a>
 
-                        <a href="https://linkedin.com/"
-                           target="_blank" rel="noopener noreferrer"
-                           class="social-link" title="LinkedIn"
-                           aria-label="LinkedIn profile">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                            <a href="https://linkedin.com/"
+                               target="_blank" rel="noopener noreferrer"
+                               class="social-link" title="LinkedIn"
+                               aria-label="LinkedIn profile">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="contact-form-wrapper" data-animation="slide-right">
                     <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name"
-                                   placeholder="Your Name" required>
-                            <span class="input-line"></span>
+                        <div class="form-header">
+                            <span class="form-title"><i class="fas fa-paper-plane"></i> Send a Message</span>
+                            <span class="form-status"><span class="status-indicator-dot"></span> Fast response guaranteed</span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email"
-                                   placeholder="Your Email" required>
-                            <span class="input-line"></span>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name"
+                                       placeholder="e.g. John Doe" required>
+                                <span class="input-line"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email"
+                                       placeholder="e.g. john@example.com" required>
+                                <span class="input-line"></span>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="subject">Subject</label>
                             <input type="text" id="subject" name="subject"
-                                   placeholder="Subject" required>
+                                   placeholder="e.g. Project Inquiry / Collaboration" required>
                             <span class="input-line"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="message">Your Message</label>
                             <textarea id="message" name="message" rows="5"
-                                      placeholder="Your Message" required></textarea>
+                                      placeholder="Tell me about your project, idea, or role..." required></textarea>
                             <span class="input-line"></span>
                         </div>
 
@@ -693,8 +1137,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="footer-brand-name">Mayank Kumar</div>
-                    <p class="footer-text">Web Developer &amp; CS Student</p>
+                    <a href="#home" class="footer-brand-logo">
+                        <span class="brand-monogram">MK</span>
+                        <span class="brand-name">Mayank Kumar</span>
+                    </a>
+                    <p class="footer-text">Web Developer &amp; Computer Science Postgraduate Student at Pondicherry University.</p>
                 </div>
 
                 <nav class="footer-nav" aria-label="Footer navigation">
@@ -710,11 +1157,17 @@
                 </nav>
             </div>
 
-            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="footer-copy">
+                    &copy; 2026 Mayank Kumar. Engineered with modern web standards.
+                </p>
 
-            <p class="footer-copy">
-                &copy; 2026 Mayank Kumar. All Rights Reserved.
-            </p>
+                <div class="footer-socials">
+                    <a href="https://github.com/mayankkumar7632" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:mayankk7chal@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -723,6 +1176,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Application Script -->
     <script src="script.js"></script>
 </body>
 </html>
